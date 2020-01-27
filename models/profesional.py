@@ -9,6 +9,6 @@ class Profesional(models.Model):
     description = fields.Text(required="True",string="Descripcion")
     contacto = fields.Char(required="True", string="Contacto")
     
-    #revision_id = fields.One2many('verificaciones_de_productos.revision', string = "Revision" )
+    revision_id = fields.One2many('verificaciones_de_productos.revision','profesional_id', string = "Revision" )
     nivel_id = fields.Many2one('verificaciones_de_productos.nivel', ondelete='cascade', string="Nivel")
 

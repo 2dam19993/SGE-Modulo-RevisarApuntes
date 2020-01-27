@@ -10,4 +10,4 @@ class Nivel(models.Model):
     espeificacion = fields.Char(string = "Especificacion")
     descripcion = fields.Text()
     #onde ondelete = 'cascade'
-    profesional_id = fields.One2many('res.partner', 'id', string = "Profesional" )
+    profesional_id = fields.One2many('res.partner', 'nivel_id', string = "Profesional" )
