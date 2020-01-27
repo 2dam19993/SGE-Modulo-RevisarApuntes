@@ -4,12 +4,11 @@
 from odoo import models, fields, api
 
 class Profesional(models.Model):
-    _name = 'verificaciones_de_productos.profesional'
-    _inherit = 'res.users'
+    _inherit = 'res.partner'
     
     description = fields.Text(required="True",string="Descripcion")
     contacto = fields.Char(required="True", string="Contacto")
     
-    #revision_id = fields.One2many('verificaciones_de_productos.revision', string = "Revision" )
+    revision_id = fields.One2many('verificaciones_de_productos.revision', string = "Revision" )
     nivel_id = fields.Many2one('verificaciones_de_productos.nivel', ondelete='cascade', string="Nivel")
 

@@ -1,0 +1,81 @@
+<odoo>
+	<report
+ 	    	id="apunte_report"
+   		 string="Apunte report"
+   		 model="verificaciones_de_productos.apunte"
+   		 report_type="qweb-pdf"
+  		 name="verificaciones_de_productos.apunte_report_template"/>
+
+<template id="apunte_report_template">
+    <t t-call="report.html_container">
+	<t t-call="report.external_layout">
+        <div class="page">
+			<div class="oe_structure"/>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>
+						<span>Informe de de los apuntes:</span>
+						<span t-field="docs.name"/>
+					</h2>
+					<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<br/><br/>
+				<p><strong>Descripción: </strong><span t-field="docs.description"/></p>
+				<p><strong>Código: </strong><span t-field="docs.codigo_apunte"/></p>
+				<br/><p><strong>Revisiones:</strong></p>
+				<t t-foreach="docs.revisiones_ids" t-as="r">
+					<hr/>
+					<p><strong>Profesional: </strong><span t-field="r.profesional_id.name"/></p>
+					<p><strong>Titulado en: </strong><span t-field="r.profesional_id.nivel_id.nivel_academico"/> en <span t-field="r.profesional_id.nivel_id.espeificacion"/></p>
+					<p><span t-field="r.anotacion"/></p>
+				</t>
+					<!--table class="table table-condensed">
+						<thead>
+							<tr>
+								<th>Stage</th>
+								<th>Task</th>
+								<th>User</th>
+								<th>Dead line</th>
+								<th>Progress</th>
+								<th>%</th>
+							</tr>
+					  	</thead>
+					 	<tbody>
+							<t t-foreach="docs.task_ids" t-as="l">
+								<tr>
+									<td>
+										<span t-field="l.stage_id.name" />
+									</td>
+									<td>
+										<span t-field="l.name"/>
+									</td>
+									<td>
+										<span t-field="l.user_id.name"/><br/>
+										<t t-foreach="l.x_colaborador" t-as="colab">
+											<span t-field="colab.name"/><br/>
+										</t>
+									</td>
+									<td>
+										<span t-field="l.date_deadline"/>
+									</td>
+									<td>
+										<progress max="100" t-att-value="l.progress"/>
+									</td>
+									<td>
+										<span t-field="l.progress"/>
+									</td>
+								</tr>
+							</t>
+						</tbody>
+					</table-->
+				</div>
+			</div>
+		<div class="oe_structure"/>
+		</div>
+	</t>
+    </t>
+</template>	
+</odoo>

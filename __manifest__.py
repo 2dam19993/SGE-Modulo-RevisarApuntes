@@ -24,12 +24,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','report'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/apunte.xml'
+        'views/apunte.xml',
+        'views/profesional.xml',
+        'views/apunte_report.xml',
+        'views/nivel.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
