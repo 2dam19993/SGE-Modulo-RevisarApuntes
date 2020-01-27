@@ -43,8 +43,8 @@ and open the template in the editor.
             
         </record>
         <!-- VISTA DE LISTA -->
-        <record model="ir.ui.view" id="apunte_tree_view">
-            <field name="name">apunte.tree</field>
+        <record model="ir.ui.view" id="nivel_tree_view">
+            <field name="name">nivel.tree</field>
             <field name="model">verificaciones_de_productos.nivel</field>
             <field name="arch" type="xml">
                 <tree string="Niveles">
