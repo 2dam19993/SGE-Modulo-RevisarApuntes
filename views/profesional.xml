@@ -10,35 +10,12 @@
         </record>
         <!-- EL MENU DEL MENUBAR-->
         <menuitem id="profesional_menu" name="Profesionales" parent="verificaciones_menu" action="profesional_list_action"/>
-        <!-- VISTA DE FORMULARIO -->
-        <!--record model="ir.ui.view" id="profesional_form_view">
-            <field name="name">profesional.form</field>
-            <field name="model">verificaciones_de_productos.profesional</field>
-            <field name="inherit_id" ref="base.view_users_form"/>
-            <field name="arch" type="xml">
-                <form string="Profesional Form">
-                    <notebook position="inside">
-                        <page string="Nivel">
-                            <group>
-                                <field name="description" />
-                                <field name="contacto" />
-                                <field name="nivel_id" />
-                            </group>
-                        </page>
-                    </notebook>
-                </form>
-            </field>
-        </record-->
+        <!-- VISTA DE FORMULARIO -->        
         <record model="ir.ui.view" id="profesional_form_view">
             <field name="name">profesional.form</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
-                <!--field name="company_id" position="after">
-                    <field name="description" />
-                    <field name="contacto" />
-                    <field name="nivel_id" />
-             </field-->
+            <field name="arch" type="xml">  
                 <notebook position="inside">
                         <page string="Nivel">
                             <group>

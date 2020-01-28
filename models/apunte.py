@@ -61,3 +61,11 @@ class Apunte(models.Model):
           raise ValidationError("El titulo tiene que tener más de 3 caracteres de longitud")
         elif len(a.name)>250:
           raise ValidationError("El titulo tiene que tener menos de 250 caracteres de longitud")
+      
+    @api.constrains('apunte','revisiones_ids')
+    def _name_correcto(self):
+      for a in self:
+        for r in a.revisiones_ids:
+            if a.id!=r.apunte_id.id:
+                raise ValidationError("La revisión tiene que ser el del apunte seleccionado")
+        

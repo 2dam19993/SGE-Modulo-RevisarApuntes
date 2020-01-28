@@ -32,45 +32,7 @@
 					<p><strong>Titulado en: </strong><span t-field="r.profesional_id.nivel_id.nivel_academico"/> en <span t-field="r.profesional_id.nivel_id.espeificacion"/></p>
 					<p><span t-field="r.anotacion"/></p>
 				</t>
-					<!--table class="table table-condensed">
-						<thead>
-							<tr>
-								<th>Stage</th>
-								<th>Task</th>
-								<th>User</th>
-								<th>Dead line</th>
-								<th>Progress</th>
-								<th>%</th>
-							</tr>
-					  	</thead>
-					 	<tbody>
-							<t t-foreach="docs.task_ids" t-as="l">
-								<tr>
-									<td>
-										<span t-field="l.stage_id.name" />
-									</td>
-									<td>
-										<span t-field="l.name"/>
-									</td>
-									<td>
-										<span t-field="l.user_id.name"/><br/>
-										<t t-foreach="l.x_colaborador" t-as="colab">
-											<span t-field="colab.name"/><br/>
-										</t>
-									</td>
-									<td>
-										<span t-field="l.date_deadline"/>
-									</td>
-									<td>
-										<progress max="100" t-att-value="l.progress"/>
-									</td>
-									<td>
-										<span t-field="l.progress"/>
-									</td>
-								</tr>
-							</t>
-						</tbody>
-					</table-->
+					
 				</div>
 			</div>
 		<div class="oe_structure"/>

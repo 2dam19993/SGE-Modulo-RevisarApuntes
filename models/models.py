@@ -2,25 +2,27 @@
 
 from odoo import models, fields, api
 
-# class verificaciones_de_productos(models.Model):
-#     _name = 'verificaciones_de_productos.verificaciones_de_productos'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
-
 class Revision(models.Model):
     _name = 'verificaciones_de_productos.revision'
     
     #apunte_id = fields.Many2one('verificaciones_de_productos.apunte', ondelete='cascade', string="Apunte", index=True)
     apunte_id = fields.Many2one('verificaciones_de_productos.apunte', ondelete='cascade', string="Apunte", required=True)
     profesional_id = fields.Many2one('res.partner', string="Profesional")
-    anotacion = fields.Text(string="Anotacions sobre el apunte")
+    anotacion = fields.Text(string="Anotacions sobre el apunte",required=True)
     
 
-    
+    @api.onchange('revision','anotacion')
+    def _verificar_descipcion(self):
+        if self.anotacion and (len(self.anotacion) < 3):
+            return {
+                'warning': {
+                    'title': "Anotación no valido",
+                    'message': "La anotación tiene que tener más de 3 caracteres.",
+                },
+            }
+    @api.constrains('revision','anotacion')
+    def _descripcion_correcta(self):
+        for a in self:
+            if len(a.anotacion)<3:
+                raise ValidationError("La anotación tiene que tener más de 3 caracteres de longitud")
+
