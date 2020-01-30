@@ -33,6 +33,8 @@
         'views/apunte.xml',
         'views/profesional.xml',
         'views/apunte_report.xml',
+        'views/report_nivel.xml',
+        'views/profesional_report.xml',
         'views/nivel.xml'
     ],
     # only loaded in demonstration mode
