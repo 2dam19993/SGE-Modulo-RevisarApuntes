@@ -5,40 +5,17 @@
         <!-- PARTE DE LAS ACCIONES -->
         <record model="ir.actions.act_window" id="profesional_list_action">
             <field name="name">Profesionales</field>
-            <field name="res_model">verificaciones_de_productos.profesional</field>
+            <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
         </record>
         <!-- EL MENU DEL MENUBAR-->
         <menuitem id="profesional_menu" name="Profesionales" parent="verificaciones_menu" action="profesional_list_action"/>
-        <!-- VISTA DE FORMULARIO -->
-        <!--record model="ir.ui.view" id="profesional_form_view">
-            <field name="name">profesional.form</field>
-            <field name="model">verificaciones_de_productos.profesional</field>
-            <field name="inherit_id" ref="base.view_users_form"/>
-            <field name="arch" type="xml">
-                <form string="Profesional Form">
-                    <notebook position="inside">
-                        <page string="Nivel">
-                            <group>
-                                <field name="description" />
-                                <field name="contacto" />
-                                <field name="nivel_id" />
-                            </group>
-                        </page>
-                    </notebook>
-                </form>
-            </field>
-        </record-->
+        <!-- VISTA DE FORMULARIO -->        
         <record model="ir.ui.view" id="profesional_form_view">
             <field name="name">profesional.form</field>
-            <field name="model">verificaciones_de_productos.profesional</field>
-            <field name="inherit_id" ref="base.view_users_form"/>
-            <field name="arch" type="xml">
-                <!--field name="company_id" position="after">
-                    <field name="description" />
-                    <field name="contacto" />
-                    <field name="nivel_id" />
-             </field-->
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">  
                 <notebook position="inside">
                         <page string="Nivel">
                             <group>
@@ -53,7 +30,7 @@
         <!-- VISTA DE BUSQUEDA -->
         <record model="ir.ui.view" id="profesional_search_view">
             <field name="name">profesional.search</field>
-            <field name="model">verificaciones_de_productos.profesional</field>
+            <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <search>
                     <field name="nivel_id"/>
@@ -64,7 +41,7 @@
         <!-- VISTA DE LISTA -->
         <record model="ir.ui.view" id="profesional_tree_view">
             <field name="name">profesional.tree</field>
-            <field name="model">verificaciones_de_productos.profesional</field>
+            <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <tree string="Profesional list">
                     <field name="name"/>

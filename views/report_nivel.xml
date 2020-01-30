@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <report
+            id="report_nivel"
+            model="verificaciones_de_productos.nivel"
+            string="Reporte de Nivel"
+            name="verificaciones_de_productos.report_nivel_template"
+            report_type="qweb-pdf" />
+        <!--Template definition-->    
+        <template id="report_nivel_template">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h3>Nivel Academico:
+                            <span t-field="docs.nivel_academico"/>
+                        </h3> 
+                        <h5>Especificacion del Nivel:
+                            <span t-field="docs.espeificacion"/>  
+                        </h5> 
+                        <h5>Descripcion del Nivels:
+                            <spam t-field="docs.descripcion"/>
+                        </h5>
+                        
+                       
+                                          
+                    </div>
+                </t>           
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<odoo>
+    <data>
+        <!--Declaracion de la accion-->
+        <record model="ir.actions.act_window" id="nivel_list_action">
+            <field name="name">Niveles</field> <!--Nombre que se ve-->
+            <field name="res_model">verificaciones_de_productos.nivel</field><!--Modelo de referencia-->
+            <field name="view_mode">tree,form</field><!--Esqueleto que va a tener-->
+        </record>
+        <!--MenuBar, definicion del menu lateral-->
+        <menuitem id="nivel_menu" name="Niveles" parent="verificaciones_menu" action="nivel_list_action"/>
+        <!--Vista Formulario-->
+        <!--Registro modelo, tipo de vista definido con el elemento raiz arch-->
+        <record model="ir.ui.view" id="nivel_form_view">
+            <field name="name">nivel.form</field>
+            <field name="model">verificaciones_de_productos.nivel</field>
+            <field name="arch" type="xml">
+                <form string="Nivel form">
+                    <sheet>
+                        <group String="Profesional">
+                            <field name="nivel_academico"/>
+                            <field name="espeificacion"/>
+                            <field name="descripcion"/>
+                            
+                        </group>
+                        <notebook>
+                            <page string="Profesionales">
+                                <field name="profesional_id">
+                                    <tree string="Los profesionales"/>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+            
+        </record>
+        <!-- VISTA DE LISTA -->
+        <record model="ir.ui.view" id="nivel_tree_view">
+            <field name="name">nivel.tree</field>
+            <field name="model">verificaciones_de_productos.nivel</field>
+            <field name="arch" type="xml">
+                <tree string="Niveles">
+                    <field name="nivel_academico"/>
+                    <field name="espeificacion"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>
+        <!--search-->
+        <record model="ir.ui.view" id="nivel_search_view">
+            <field name="name">nivel.search</field>
+            <field name="model">verificaciones_de_productos.nivel</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="nivel academico" domain="[('nivel_academico', 'like',]"/>
+                    <filter name="espeificacion" String="carlaaaa"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
