@@ -6,8 +6,9 @@ class Revision(models.Model):
     _name = 'verificaciones_de_productos.revision'
     
     #apunte_id = fields.Many2one('verificaciones_de_productos.apunte', ondelete='cascade', string="Apunte", index=True)
+    # domain="[(profesional_id.is_company,'=',False)]"
     apunte_id = fields.Many2one('verificaciones_de_productos.apunte', ondelete='cascade', string="Apunte", required=True)
-    profesional_id = fields.Many2one('res.partner', string="Profesional")
+    profesional_id = fields.Many2one('res.partner', string="Profesional", domain=[('is_company','=',False)])
     anotacion = fields.Text(string="Anotacions sobre el apunte",required=True)
     
 

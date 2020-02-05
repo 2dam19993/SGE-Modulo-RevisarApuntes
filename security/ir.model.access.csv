@@ -4,7 +4,7 @@ apunte_manager,apunte manager,model_verificaciones_de_productos_apunte,group_man
 profesional_manager,profesional manager,model_res_partner,group_manager,1,1,1,
 nivel_manager,nivel manager,model_verificaciones_de_productos_nivel,group_manager,1,1,1,1
 revision_manager,revision manager,model_verificaciones_de_productos_revision,group_manager,1,1,1,1
-apunte_manager,apunte manager,model_verificaciones_de_productos_apunte,,1,0,0,0
-profesional_manager,profesional manager,model_res_partner,,1,0,0,0
-nivel_manager,nivel manager,model_verificaciones_de_productos_nivel,,1,0,0,0
-revision_manager,revision manager,model_verificaciones_de_productos_revision,,1,0,0,0
+apunte_read_all,apunte manager,model_verificaciones_de_productos_apunte,,1,0,0,0
+profesional_read_all,profesional manager,model_res_partner,,1,0,0,0
+nivel_read_all,nivel manager,model_verificaciones_de_productos_nivel,,1,0,0,0
+revision_read_all,revision manager,model_verificaciones_de_productos_revision,,1,0,0,0
