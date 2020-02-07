@@ -27,9 +27,9 @@ class Revision(models.Model):
             if len(a.anotacion)<3:
                 raise ValidationError("La anotación tiene que tener más de 3 caracteres de longitud")
     
-    @api.constrains('profesional_id')
+    @api.constrains('partner','profesional_id')
     def _no_es_empresa(self):
         for e in self:
-            if e.profesional_id.is_company == False:
+            if e.profesional_id.is_company:
                 raise ValidationError("No puede ser una compañia.")
 
